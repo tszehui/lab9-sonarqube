@@ -16,7 +16,7 @@ pipeline {
                             ${scannerHome}/bin/sonar-scanner \
                             -Dsonar.projectKey=OWASP \
                             -Dsonar.sources=. \
-                            -Dsonar.host.url=http://your-sonarqube-server:9000
+                            -Dsonar.host.url=http://localhost:9000
                         """
                     } 
                 } 
