@@ -2,7 +2,7 @@ pipeline {
     agent any 
     environment {
         SONAR_HOST_URL = 'http://localhost:9000'
-        SONAR_AUTH_TOKEN = credentials('sqp_95f5b4ca2a747c9236d5181916fb90ba663dbd15')
+        SONAR_AUTH_TOKEN = credentials('SonarQube')
     }
     stages { 
         stage ('Checkout') { 
