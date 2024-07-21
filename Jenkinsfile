@@ -1,5 +1,9 @@
 pipeline { 
     agent any 
+    environment {
+        SONAR_HOST_URL = 'http://localhost:9000'
+        SONAR_AUTH_TOKEN = credentials('sqp_95f5b4ca2a747c9236d5181916fb90ba663dbd15')
+    }
     stages { 
         stage ('Checkout') { 
             steps { 
@@ -14,12 +18,11 @@ pipeline {
                     withSonarQubeEnv('SonarQube') { 
                         sh """
                             echo "SonarQube Scanner Home: ${scannerHome}"
-                            echo "SonarQube Server URL: http://localhost:9000"
                             ${scannerHome}/bin/sonar-scanner \
                             -Dsonar.projectKey=OWASP \
                             -Dsonar.sources=. \
-                            -Dsonar.host.url=http://localhost:9000 \
-                            -Dsonar.login=${env.SonarQube} \
+                            -Dsonar.host.url=${SONAR_HOST_URL} \
+                            -Dsonar.login=${SONAR_AUTH_TOKEN} \
                             -X
                         """
                     } 
