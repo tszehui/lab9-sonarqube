@@ -19,7 +19,7 @@ sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=OWASP -Dsonar.sources=."
 }
 post {
 always {
-recordIssues enabledForFailure: true, tool: sonarQube()
+recordIssues enabledForFailure: true, tools: sonarQube()
 }
 }
 }
