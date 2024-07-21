@@ -18,10 +18,4 @@ pipeline {
             }
         }
     }
-    post {
-        always {
-            // Add steps here to handle other post-build actions if needed
-            // Example: publish test results, archive artifacts, etc.
-        }
-    }
 }
